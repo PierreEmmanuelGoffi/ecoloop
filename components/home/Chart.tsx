@@ -1,9 +1,7 @@
-// Chart.js
-import React from 'react';
-import { Dimensions, StyleSheet, Text } from 'react-native';
-import { LineChart } from 'react-native-chart-kit';
+import { Dimensions, StyleSheet, Text } from "react-native";
+import { LineChart } from "react-native-chart-kit";
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Dimensions.get("window").width;
 
 type ChartProps = {
   data: {
@@ -45,9 +43,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'center',
+    fontWeight: "bold",
+    color: "#fff",
+    textAlign: "center",
     marginVertical: 8,
   },
 });

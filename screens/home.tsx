@@ -1,38 +1,39 @@
 // Home.js
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
+
 import {
   Chart,
   ActivitySummary,
   CO2CashSummary,
   ShopHeader,
-} from '../components/home';
+} from "../components/home";
 
 const activities = [
   {
-    label: 'Boites livrées',
+    label: "Boites livrées",
     value: 10,
   },
   {
-    label: 'Boites en attente',
+    label: "Boites en attente",
     value: 20,
   },
   {
-    label: 'Boites disposées',
+    label: "Boites disposées",
     value: 30,
   },
   {
-    label: 'Retours',
+    label: "Retours",
     value: 30,
   },
   {
-    label: 'On-Time delivery',
+    label: "On-Time delivery",
     value: 30,
   },
 ];
 
 const chartData = {
-  labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jui'],
+  labels: ["Jan", "Fev", "Mar", "Avr", "Mai", "Jui"],
   datasets: [
     {
       data: [20, 45, 28, 80, 99, 43],
@@ -43,9 +44,9 @@ const chartData = {
 };
 
 const chartConfig = {
-  backgroundColor: '#1e1f22',
-  backgroundGradientFrom: '#1e1f22',
-  backgroundGradientTo: '#1e1f22',
+  backgroundColor: "#1e1f22",
+  backgroundGradientFrom: "#1e1f22",
+  backgroundGradientTo: "#1e1f22",
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   strokeWidth: 2,
   barPercentage: 0.5,
@@ -65,7 +66,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1e1f22',
+    backgroundColor: "#1e1f22",
   },
 });
 

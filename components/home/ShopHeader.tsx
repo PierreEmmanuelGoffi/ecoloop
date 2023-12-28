@@ -1,6 +1,4 @@
-// ShopHeader.js
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from "react-native";
 
 type ShopHeaderProps = {
   title: string;
@@ -14,7 +12,7 @@ const ShopHeader = ({ title }: ShopHeaderProps) => (
 
 const styles = StyleSheet.create({
   shop_name: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 20,
     margin: 10,
   },

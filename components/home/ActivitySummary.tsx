@@ -1,6 +1,4 @@
-// ActivitySummary.js
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from "react-native";
 
 type ActivitySummaryProps = {
   activities: {
@@ -23,23 +21,23 @@ const ActivitySummary = ({ activities }: ActivitySummaryProps) => (
 
 const styles = StyleSheet.create({
   co2_cash_container: {
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    justifyContent: "space-around",
+    alignItems: "center",
     padding: 10,
     margin: 10,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#28282e',
+    borderColor: "#28282e",
   },
   text_orientation_container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
     margin: 5,
   },
   text_color: {
-    color: '#fff',
+    color: "#fff",
   },
 });
 

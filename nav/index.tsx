@@ -1,12 +1,10 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
-import { StatusBar } from 'expo-status-bar';
-
-import Home from '../screens/home';
-import Map from '../screens/map';
-import Order from '../screens/order';
+import Home from "../screens/home";
+import Map from "../screens/map";
+import Order from "../screens/order";
 
 const Tab = createBottomTabNavigator();
 
