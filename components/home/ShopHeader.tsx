@@ -5,7 +5,7 @@ type ShopHeaderProps = {
 };
 
 const ShopHeader = ({ title }: ShopHeaderProps) => (
-  <View>
+  <View style={styles.centered}>
     <Text style={styles.shop_name}>{title}</Text>
   </View>
 );
@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     margin: 10,
+  },
+  centered: {
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

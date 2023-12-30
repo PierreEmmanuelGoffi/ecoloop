@@ -27,6 +27,15 @@ module.exports = {
       favicon: "./assets/favicon.png",
     },
     expo: {
+      plugins: [
+        [
+          "expo-location",
+          {
+            locationAlwaysAndWhenInUsePermission:
+              "Laissez $(PRODUCT_NAME), nous utiliserons vos données afin de vous localiser.",
+          },
+        ],
+      ],
       firebase: {
         apiKey: process.env.API_KEY,
         authDomain: process.env.AUTH_DOMAIN,

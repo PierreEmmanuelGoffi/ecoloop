@@ -1,6 +1,6 @@
 // Home.js
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 
 import {
   Chart,
@@ -54,12 +54,12 @@ const chartConfig = {
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ShopHeader title="Magasin #01" />
       <CO2CashSummary />
       <ActivitySummary activities={activities} />
       <Chart data={chartData} chartConfig={chartConfig} />
-    </View>
+    </SafeAreaView>
   );
 };
 

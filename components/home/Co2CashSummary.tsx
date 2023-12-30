@@ -5,11 +5,11 @@ const CO2CashSummary = () => (
     <Text style={styles.text_color}>Économies :</Text>
     <View style={styles.text_orientation_container}>
       <Text style={styles.text_color}>CO2 :</Text>
-      <Text style={styles.text_color}>0.00 kg</Text>
+      <Text style={styles.text_economies_color}>102.00 kg</Text>
     </View>
     <View style={styles.text_orientation_container}>
       <Text style={styles.text_color}>Cash :</Text>
-      <Text style={styles.text_color}>0.00 $</Text>
+      <Text style={styles.text_economies_color}>700.00 $</Text>
     </View>
   </View>
 );
@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
   },
   text_color: {
     color: "#fff",
+  },
+  text_economies_color: {
+    color: "#078207",
   },
 });
 
