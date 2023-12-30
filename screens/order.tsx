@@ -1,38 +1,14 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import {
-  View,
-  Text,
-  FlatList,
-  Pressable,
-  Alert,
-  SafeAreaView,
-  StyleSheet,
-} from "react-native";
+import { Text, FlatList, Alert, SafeAreaView, StyleSheet } from "react-native";
 
+import { OrderButton, OrderItem } from "../components/order";
 import { data } from "../data";
 
 const Tab = createMaterialTopTabNavigator();
 
 const handleOrder = () => {
-  Alert.alert("Votre commande a bien été prise en compte");
-};
-
-type OrderItemProps = {
-  item: (typeof data)[0];
-};
-
-const renderItem = ({ item }: OrderItemProps) => {
-  return (
-    <Pressable style={styles.card}>
-      <View style={styles.cardContent}>
-        <Text style={styles.time}>
-          {item.start} - {item.end}
-        </Text>
-        <Text style={styles.state}>{item.state}</Text>
-      </View>
-    </Pressable>
-  );
+  Alert.alert("Superbe!", "Nous nous chargeons du reste.");
 };
 
 const OrderScreen = () => {
@@ -43,18 +19,10 @@ const OrderScreen = () => {
       </Text>
       <FlatList
         data={data}
-        renderItem={renderItem}
+        renderItem={OrderItem}
         keyExtractor={(item) => item.id.toString()}
       />
-      <Pressable
-        onPress={handleOrder}
-        style={({ pressed }) => [
-          styles.orderButton,
-          pressed ? styles.orderButtonPressed : {},
-        ]}
-      >
-        <Text style={styles.orderButtonText}>Placer votre commande</Text>
-      </Pressable>
+      <OrderButton label="Commander" handleOrder={handleOrder} />
     </SafeAreaView>
   );
 };
@@ -67,18 +35,10 @@ const DisposeScreen = () => {
       </Text>
       <FlatList
         data={data}
-        renderItem={renderItem}
+        renderItem={OrderItem}
         keyExtractor={(item) => item.id.toString()}
       />
-      <Pressable
-        onPress={handleOrder}
-        style={({ pressed }) => [
-          styles.orderButton,
-          pressed ? styles.orderButtonPressed : {},
-        ]}
-      >
-        <Text style={styles.orderButtonText}>Disposer les boites</Text>
-      </Pressable>
+      <OrderButton label="Disposer" handleOrder={handleOrder} />
     </SafeAreaView>
   );
 };
@@ -126,42 +86,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#1e1f22",
   },
-  header: {
-    fontSize: 24,
-    color: "white",
-    fontWeight: "bold",
-    padding: 16,
-  },
   subheader: {
     fontSize: 18,
     color: "white",
     padding: 16,
-  },
-  card: {
-    backgroundColor: "white",
-    borderRadius: 8,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    padding: 16,
-    elevation: 1,
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    shadowColor: "black",
-    shadowOffset: { height: 2, width: 0 },
-  },
-  cardContent: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  time: {
-    fontSize: 18,
-    color: "black",
-  },
-  state: {
-    fontSize: 18,
-    color: "green",
-    fontWeight: "bold",
   },
   orderButton: {
     backgroundColor: "green",
