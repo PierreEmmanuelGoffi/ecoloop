@@ -1,11 +1,5 @@
 export const data = [
   {
-    id: 1,
-    start: "8:00",
-    end: "9:00",
-    state: "En cours",
-  },
-  {
     id: 2,
     start: "9:30",
     end: "10:30",
