@@ -1,7 +1,7 @@
 import { ObjectId } from 'bson';
 
 export interface Pin {
-    id: ObjectId;
+    _id: ObjectId;
     latitude: number;
     longitude: number;
 }

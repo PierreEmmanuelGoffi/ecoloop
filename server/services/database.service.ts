@@ -6,6 +6,8 @@ import 'reflect-metadata';
 const DATABASE_URL = process.env.DATABASE_URL;
 const DATABASE_NAME = process.env.DATABASE_NAME;
 const USER_COLLECTION = process.env.USER_COLLECTION;
+const PIN_COLLECTION = process.env.PIN_COLLECTION;
+const COLLECTIONS = [USER_COLLECTION, PIN_COLLECTION];
 
 const client = new MongoClient(DATABASE_URL!, {
     serverApi: {
@@ -32,8 +34,10 @@ export class DatabaseService {
             this.db = client.db(DATABASE_NAME);
             console.log('Connected to database');
 
-            if ((await this.db.collection(USER_COLLECTION!).countDocuments()) === 0) {
-                console.log('User collection is empty');
+            for (const col of COLLECTIONS) {
+                if ((await this.db.collection(col!).countDocuments()) === 0) {
+                    console.log('Collection ' + col + ' is empty');
+                }
             }
 
         } catch {

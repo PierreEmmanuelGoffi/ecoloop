@@ -1,6 +1,6 @@
 import { User } from '../classes/user';
 import { isValidId } from '../classes/global-functions';
-import { UserService } from '../services/users.service';
+import { UserService } from '../services/user.service';
 import { NextFunction, Request, Response, Router } from 'express';
 import * as Httpstatus from 'http-status-codes';
 import { inject, injectable } from 'inversify';

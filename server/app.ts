@@ -7,6 +7,7 @@ import * as logger from 'morgan';
 import * as swaggerJSDoc from 'swagger-jsdoc';
 import * as swaggerUi from 'swagger-ui-express';
 import { UserController } from './controllers/user.controller';
+import { PinController } from './controllers/pin.controller';
 import { TYPES } from './types';
 
 @injectable()
@@ -17,6 +18,7 @@ export class Application {
 
     constructor(
         @inject(TYPES.UserController) private userController: UserController,
+        @inject(TYPES.PinController) private pinController: PinController,
     ) {
         this.app = express();
 
@@ -48,6 +50,7 @@ export class Application {
     bindRoutes(): void {
         this.app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(this.swaggerOptions)));
         this.app.use('/api/user', this.userController.router);
+        this.app.use('/api/pin', this.pinController.router);
         this.errorHandling();
     }
 
