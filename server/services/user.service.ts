@@ -70,9 +70,9 @@ export class UserService {
             });
     }
 
-    async updateUser(userId: ObjectId, newUser: User): Promise<boolean> {
+    async updateUserLocation(userId: ObjectId, newLocation: Pin): Promise<boolean> {
         const filter = { _id: userId };
-        const update = { $set: newUser };
+        const update = { $set: { location: newLocation } };
     
         try {
             const result = await this.userCollection.updateOne(filter, update);
@@ -86,6 +86,7 @@ export class UserService {
             throw new Error("Échec de l'opération de modification d'un utilisateur, " + error.message);
         }
     }
+    
 
     async addPinToUser(userId: ObjectId, newPin: Pin): Promise<boolean> {
         const filter = { _id: userId };

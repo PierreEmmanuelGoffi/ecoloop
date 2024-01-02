@@ -6,6 +6,6 @@ export interface User {
     _id: ObjectId;
     email: string;
     password: string;
-    pins: Pin[];
+    location: Pin;
     orders: Order[];
 }

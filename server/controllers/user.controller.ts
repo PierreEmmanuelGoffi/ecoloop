@@ -31,10 +31,8 @@ export class UserController {
          *              password:
          *                  type: string
          *                  required: true
-         *              pins:
-         *                  type: array
-         *                  items:
-         *                      $ref: '#/definitions/pin'
+         *              location:
+         *                  $ref: '#/definitions/pin'
          *              orders:
          *                  type: array
          *                  items:
@@ -213,50 +211,6 @@ export class UserController {
         /**
          * @swagger
          *
-         * /api/user/{id}/pin:
-         *   patch:
-         *     description: add a pin to a user
-         *     tags:
-         *       - User
-         *     parameters:
-         *         - in: path
-         *           name: id
-         *           schema:
-         *            type: string
-         *     requestBody:
-         *         required: true
-         *         content:
-         *           application/json:
-         *             schema:
-         *               $ref: '#/definitions/pin'
-         *     produces:
-         *       - application/json
-         *     responses:
-         *       201:
-         *         description: OK
-         */
-        this.router.patch('/:id/pin', async (req: Request, res: Response) => {
-            if (isValidId(req.params.id)) {
-                this.userService
-                .addPinToUser(new ObjectId(req.params.id), req.body)
-                .then((wasAdded: boolean) => {
-                    if (wasAdded) {
-                        res.sendStatus(Httpstatus.StatusCodes.OK).send();
-                    } else {
-                        res.sendStatus(Httpstatus.StatusCodes.BAD_REQUEST).send();
-                    }
-                })
-                .catch((error: Error) => {
-                    res.status(Httpstatus.StatusCodes.NOT_FOUND).send(error.message);
-                });
-            } else {
-                res.status(Httpstatus.StatusCodes.BAD_REQUEST).send('Identifiant Invalide');
-            }
-        });
-
-        /**
-         * @swagger
-         *
          * /api/user/{id}/order:
          *   patch:
          *     description: add an order to a user
@@ -303,7 +257,7 @@ export class UserController {
          *
          * /api/user/{id}:
          *  patch:
-         *     description: update a user by id
+         *     description: update a user location by id
          *     tags:
          *         - User
          *     parameters:
@@ -316,7 +270,7 @@ export class UserController {
          *         content:
          *           application/json:
          *             schema:
-         *               $ref: '#/definitions/user'
+         *               $ref: '#/definitions/pin'
          *     produces:
          *         - application/json
          *     responses:
@@ -326,7 +280,7 @@ export class UserController {
         this.router.patch('/:id', async (req: Request, res: Response) => {
             if (isValidId(req.params.id)) {
                 this.userService
-                    .updateUser(new ObjectId(req.params.id), req.body)
+                    .updateUserLocation(new ObjectId(req.params.id), req.body)
                     .then(() => {
                         res.sendStatus(Httpstatus.StatusCodes.OK);
                     })
